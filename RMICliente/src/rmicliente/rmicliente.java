@@ -18,7 +18,7 @@ public class rmicliente {
     /**
     * Puerto
     * */
-    private final static int PORT = xxxx;
+    private final static int PORT = 8888;
     /**
     * Host
     * */
