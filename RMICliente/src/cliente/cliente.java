@@ -141,10 +141,10 @@ public class cliente {
     public static void nuevoProducto(RmiInterface s, Scanner reader)
     {
 try {
-            String id;
+           
             String producto;
             String precio;
-            String respuesta;
+            Boolean respuesta;
             
             
             System.out.println();
@@ -155,9 +155,9 @@ try {
             System.out.print("Introduzca su precio: ");
             precio = reader.next();
             
-            respuesta = s.registerNewProduct(producto, precio);
+            respuesta = s.insertProductInShop(producto, precio);
             
-            if (respuesta.equals("200"))
+            if (respuesta == true)
             {
                 System.out.println();
                 System.out.println("PRODUCTO INSERTADO");
@@ -170,7 +170,7 @@ try {
         } catch (RemoteException ex) {
             Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
     }
-
+    }
     /**
      *
      * @param s
@@ -178,7 +178,35 @@ try {
      */
     public static void borrarProducto(RmiInterface s, Scanner reader)
     {
-
+try {
+           
+           
+            Boolean respuesta;
+            String producto;
+            
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.print("Introduzca el nombre del producto a eliminar : ");
+            producto = reader.next();
+            
+            
+            respuesta = s.deleteProductoInShop (producto);
+            
+            if (respuesta == true)
+            {
+                System.out.println();
+                System.out.println("PRODUCTO ELIMINADO");
+            }
+            else
+            {
+                System.out.println();
+                System.out.println(respuesta);
+            }
+        } catch (RemoteException ex) {
+            Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }     
     }
 
     /**
@@ -186,8 +214,6 @@ try {
      * @param s
      * @param reader
      */
-    public static void mostrarProductos(RmiInterface s, Scanner reader)
-    {
+    public static void mostrarProductos(RmiInterface s, Scanner reader){
 
-    }
 }
