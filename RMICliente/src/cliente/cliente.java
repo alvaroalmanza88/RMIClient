@@ -140,7 +140,35 @@ public class cliente {
      */
     public static void nuevoProducto(RmiInterface s, Scanner reader)
     {
-
+try {
+            String id;
+            String producto;
+            String precio;
+            String respuesta;
+            
+            
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.print("Introduzca el producto: ");
+            producto = reader.next();
+            System.out.print("Introduzca su precio: ");
+            precio = reader.next();
+            
+            respuesta = s.registerNewProduct(producto, precio);
+            
+            if (respuesta.equals("200"))
+            {
+                System.out.println();
+                System.out.println("PRODUCTO INSERTADO");
+            }
+            else
+            {
+                System.out.println();
+                System.out.println(respuesta);
+            }
+        } catch (RemoteException ex) {
+            Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
     }
 
     /**
