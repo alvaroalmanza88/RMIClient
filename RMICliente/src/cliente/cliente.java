@@ -9,6 +9,8 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -76,7 +78,7 @@ public class cliente {
                         borrarProducto(s, reader);
                         break;
                     case 4:
-                        mostrarProductos(s, reader);
+                        mostrarProductos(s);
                         break;
                     default:
                         break;
@@ -214,7 +216,25 @@ try {
      * @param s
      * @param reader
      */
-    public static void mostrarProductos(RmiInterface s, Scanner reader){
-
+    public static void mostrarProductos(RmiInterface s){
+        try {
+            List<String> resultado = new ArrayList<>();
+            
+            resultado = s.showProductsInShop();
+            
+            
+            System.out.println();
+            System.out.println();
+            System.out.println("Listado de productos");
+            System.out.println();
+            int count = 0; 		
+            while (resultado.size() > count) {
+               System.out.println("   - " + resultado.get(count));
+               count++;
+            }
+        } catch (RemoteException ex) {
+            Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 }
