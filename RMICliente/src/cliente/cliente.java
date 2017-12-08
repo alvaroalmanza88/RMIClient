@@ -165,7 +165,7 @@ try {
             else
             {
                 System.out.println();
-                System.out.println(respuesta);
+                System.out.println("Error de insercion de producto");
             }
         } catch (RemoteException ex) {
             Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
@@ -201,19 +201,20 @@ try {
             else
             {
                 System.out.println();
-                System.out.println(respuesta);
+                System.out.println("Error al eliminar el producto");
             }
         } catch (RemoteException ex) {
             Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
     }
-    }     
     }
 
-    /**
+
+/**
      *
      * @param s
      * @param reader
      */
     public static void mostrarProductos(RmiInterface s, Scanner reader){
 
+    }
 }
