@@ -107,16 +107,17 @@ public class cliente {
             System.out.println();
             System.out.println();
             System.out.println();
+            reader.nextLine();
             System.out.print("Introduzca su nombre: ");
-            nombre = reader.next();
+            nombre = reader.nextLine();
             System.out.print("Introduzca su telefono: ");
-            telefono = reader.next();
+            telefono = reader.nextLine();
             System.out.print("Introduzca su email: ");
-            email = reader.next();
+            email = reader.nextLine();
             System.out.print("Vuelva a introducir su email: ");
-            email2 = reader.next();
+            email2 = reader.nextLine();
             System.out.print("Introduzca su contraseña: ");
-            pass = reader.next();
+            pass = reader.nextLine();
             
             respuesta = s.registerNewUser(nombre, pass, email, email2, telefono);
             
@@ -152,10 +153,11 @@ try {
             System.out.println();
             System.out.println();
             System.out.println();
+            reader.nextLine();
             System.out.print("Introduzca el producto: ");
-            producto = reader.next();
+            producto = reader.nextLine();
             System.out.print("Introduzca su precio: ");
-            precio = reader.next();
+            precio = reader.nextLine();
             
             respuesta = s.insertProductInShop(producto, precio);
             
@@ -180,7 +182,7 @@ try {
      */
     public static void borrarProducto(RmiInterface s, Scanner reader)
     {
-try {
+        try {
            
            
             Boolean respuesta;
@@ -189,8 +191,9 @@ try {
             System.out.println();
             System.out.println();
             System.out.println();
+            reader.nextLine();
             System.out.print("Introduzca el nombre del producto a eliminar : ");
-            producto = reader.next();
+            producto = reader.nextLine();
             
             
             respuesta = s.deleteProductoInShop (producto);
@@ -207,7 +210,7 @@ try {
             }
         } catch (RemoteException ex) {
             Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
-    }
+        }
     }
 
 
