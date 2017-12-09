@@ -59,6 +59,7 @@ public class cliente {
                 System.out.println("2 - Insertar producto.");
                 System.out.println("3 - Borrar producto.");
                 System.out.println("4 - Mostrar productos.");
+                System.out.println("0 - Salir.");
                 System.out.println();
                 System.out.print("Introduzca una opción:");
                 opcion = reader.nextInt();
